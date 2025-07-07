@@ -62,10 +62,7 @@ async def generate_qr(url: str):
         s3_url = f"https://{bucket_name}.s3.amazonaws.com/{file_name}"
         return {"qr_code_url": s3_url}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-    
-from fastapi import FastAPI
-app = FastAPI()
+        raise HTTPException(status_code=500, detail=str(e))   
 
 @app.get("/")
 def read_root():
